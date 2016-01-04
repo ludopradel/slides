@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Clean Code</title>
+
+		<meta name="description" content="Clean Code Presentation">
+		<meta name="author" content="Ludovic Pradel">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="../reveal.js/css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+				<section>
+					<h1>Clean Code</h1>
+					<p><small>By <a href="http://www.twitter.com/ludopradel">@ludopradel</a> </small></p>
+				</section>
+				<section>
+				<section data-background="images/greenfield.jpg">
+					<aside class="notes">
+					  Avez-vous deja demarre un projet de 0 ?<br/>
+					</aside>
+				</section>
+				<section data-background="images/metronome.jpg">
+					<aside class="notes">
+					  Quelques mois plus tard<br/>
+					</aside>
+				</section>
+				<section data-background="images/brokenwindow.jpg">
+					<aside class="notes">
+						Pourquoi est-ce devenu complique de modifier du code ?
+						broken windows / tas de linge sale
+						Crainte des effets de bord
+					</aside>
+				</section>
+				</section>
+				<section>
+				<img width="646" height="566" data-src="images/cleancodewtf.jpg">
+				  <aside class="notes">
+				  qu'est-ce que c'est que du code de qualite ? <br/>
+				  Ward Cunningham : "Vous savez que vous travaillez avec du code propre lorsque chaque methode que vous lisez correspond presque parfaitement a ce que vous attendiez..."
+				  <br/>
+				  </aside>
+				</section>
+				<section>
+				<section>
+					<h4>what is the purpose of this code ?</h4>
+					<pre><code class="java" data-trim>    public List&lt;int[]&gt; getThem() {
+  List&lt;int[]&gt; list1 = new ArrayList&lt;int[]&gt;();
+
+  for (int[] x : theList) {
+    if (x[0] == 4)
+      list1.add(x);
+  }
+
+  return list1;
+}
+</code></pre><aside class="notes">
+Pourquoi est-ce complique de comprendre les intentions ?<br/>
+					</aside>
+				</section>
+
+				<section>
+					<h4>and now ?</h4>
+<pre><code data-trim class="java">
+public List&lt;Cell&gt; getFlaggedCells() {
+  List&lt;Cell&gt; flaggedCells = new ArrayList&lt;Cell&gt;();
+  
+  for (Cell cell : gameBoard) {
+    if (cell.isFlagged())
+      flaggedCells.add(cell);
+  }
+		
+  return flaggedCells;
+}	
+					</code></pre><aside class="notes">
+					</aside>				
+					</section>
+
+				<section>
+					<h3>Don't repeat yourself</h3>
+					
+					<blockquote>Every piece of knowledge has one and only one representation
+	                <div align="right"><small>The Pragmatic Programmer</small></div></blockquote>
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section>
+					<h4>Example</h4>
+<pre><code data-trim class="java">
+...
+//if current frame is a spare
+if (rolls[frameIndex] + rolls[frameIndex + 1] == 10) { 
+  score += 10 + rolls[frameIndex + 2];
+  frameIndex += 2;
+}
+...     
+					</code></pre>
+					<div  class="fragment">
+					<h4>Better</h4>
+					<pre><code data-trim class="java">
+...
+if (isSpare(frameIndex)) {
+  score += 10 + rolls[frameIndex + 2];
+  frameIndex += 2;
+}
+...  
+private boolean isSpare(int frameIndex) {
+  return rolls[frameIndex] + rolls[frameIndex + 1] == 10;
+}
+					</code></pre></div>
+
+					<aside class="notes">
+Duplication de connaissance<br/>
+					</aside>
+				</section>
+				</section>
+
+				<section>
+				  <section>
+				    <h3>Comments are bad</h3>
+				    <img width="600" height="600" data-src="images/comment.jpg">
+				    <aside class='notes'> commentaires redondant (if)<br/>
+				    commentaires trompeurs<br/>
+				    commentaires obligatoires (sonar)<br/>
+				    				    commentaires parasites<br/>
+				    Code commente<br/>
+</aside>
+                  </section>
+                  <section>
+                    <h3>Comments exceptions</h3>
+                    <ul>
+						<li class="fragment">Public API documentation</li>
+						<li class="fragment">Explain the 'Why'</li>
+					</ul>
+                  </section>
+				</section>
+		<section>
+				<section>
+				  <h3>Tests</h3>
+				  <img width="785" height="464" data-src="images/crashtest.jpg">
+
+				  <aside class='notes'>peur des effets de bords.
+				  </aside>
+				</section>
+
+				<section>
+				  <h3>Tests are</h3>
+					<ul>
+						<li class="fragment">Fast</li>
+						<li class="fragment">Isolated</li>
+						<li class="fragment">Repeatable</li>
+						<li class="fragment">Self-verifying</li>
+						<li class="fragment">Timely</li>
+					</ul>
+					<aside class="notes">
+					</aside>
+				</section>
+		</section>
+		<section>
+				<section>
+				  <h3>Demeter's Law</h3>
+				  <ul>
+				  		<li class="fragment">Don't talk to strangers</li>
+				  		<li class="fragment">Write shy code</li>						
+					</ul>
+					<br/>
+				  <aside class="notes">
+				  	exemple de l'hopital<br/>
+				  </aside>
+				</section>
+
+				<section>
+				<h4>Without dependency injection</h4>
+<pre><code data-trim class="java">
+public class Client {
+  private IService service;
+
+  public Client() {
+    this.service = new ServiceExample();
+  }
+
+  public String greet() {
+    return "Hello " + service.getName();
+  }
+}    
+					</code></pre>
+					<div  class="fragment">
+					<h4>With dependency injection</h4>
+					<pre><code data-trim class="java">
+public class Client {
+  private IService service;
+
+  public Client(IService service) {
+    this.service = service;
+  }
+
+  public String greet() {
+    return "Hello " + service.getName();
+  }
+}    
+					</code></pre></div>
+ 				<aside class="notes">
+ 				  = IoC applique a la gestion des dependances,
+				</aside>
+</section></section>
+	<section>
+				<section>
+					<h3>Code smells</h3>
+					<ul>
+						<li class="fragment">Singleton</li>
+						<li class="fragment">Tight coupling</li>
+						<li class="fragment">Untestable code</li>
+						<li class="fragment">Premature optimisation</li>
+						<li class="fragment">Indescriptive naming</li>
+						<li class="fragment">Duplication</li>
+						<li class="fragment"></li>
+						<li class="fragment">Primitives</li>
+						<li class="fragment">Null</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Good Practices</h3>
+					<ul>
+						<li class="fragment">Simple design</li>
+						<li class="fragment">SOLID principles</li>
+						<li class="fragment">Dependency injection</li>
+						<li class="fragment">Boy scout rules</li>
+						<li class="fragment">Unit testing</li>
+						<li class="fragment">...</li>
+					</ul>
+				</section>
+	</section>
+				<section>
+				  <img width="250" src="images/cleancode.jpeg">
+                  <img width="250" src="images/tddbyexample.jpeg"><br>
+                  <img width="250" src="images/pragprog.jpeg">
+                  <img width="250" src="images/legacy.jpeg">
+                  <img width="250" src="images/refactoring.jpeg">
+				</section>
+
+				<section data-background="images/questions.jpg">
+				</section>
+			</div>
+
+		</div>
+
+		<script src="../reveal.js/lib/js/head.min.js"></script>
+		<script src="../reveal.js/js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: '../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../reveal.js/plugin/zoom-js/zoom.js', async: true },
+					{ src: '../reveal.js/plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
