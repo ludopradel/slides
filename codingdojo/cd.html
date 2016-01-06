@@ -1,0 +1,209 @@
+<!doctype html>  
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Coding Dojo</title>
+
+	<meta name="description" content="Coding dojo presentation">
+	<meta name="author" content="Antoine Vernois">
+	<meta name="author" content="Ludovic Pradel">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="../reveal.js/css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->	</head>
+	
+	<body>
+		
+		<div class="reveal">
+
+			<!-- Used to fade in a background when a specific slide state is reached -->
+			<div class="state-background"></div>
+			
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				
+				<section>
+					<h1>coding dojo</h1>
+					<p>
+						<img width="135" src="images/lpradel.png" align="center"/>
+					</p>
+					<p>	
+						<small>Ludovic Pradel</a> / <a href="http://twitter.com/ludopradel">@ludopradel</a></small>
+					</p>
+				</section>
+				
+				<section>
+					<h2>Constat</h2>
+					<div>
+						<p class="fragment">Si je veux apprendre le Judo, je vais m'inscrire au dojo du coin et y&nbsp;passer une heure par semaine pendant deux ans, au bout de quoi j'aurai&nbsp;peut-être envie de pratiquer plus assidûment.&nbsp;</p>
+						<p class="fragment">Si je veux apprendre la&nbsp;programmation objet, mon employeur va me trouver une formation de trois jours à Java dans le catalogue 2004.
+						</p>
+						<div class="fragment">
+							<b>
+								<font color="#FF0000">Cherchez l'erreur.</font>
+							</b>
+						</div>
+						<div style="" class="fragment" align="right">Laurent Bossavit (2004)</div>
+					</div>
+				</section>
+
+				<section>
+					<section>
+						<h2>Histoire et Ethymologie</h2>
+						<h3>Origine</h3>
+						
+						<ul class="block fragment">
+							<li>Dave Thomas : katas du développeur</li>
+							<li>Laurent Bossavit : faisons les en groupe</li>
+						</ul>
+						
+						<div class="two_columns">
+							<div class="fragment column1"> 
+								<h3>Coding</h3>
+								<div class="block">Coder</div>
+							</div>
+							<div class="fragment column2"> 
+								<h3>Dojo</h3>
+								<div class="block">Lieu où l'on étudie la voie</div>
+							</div>
+						</div>
+						<div class="fragment"> 
+							<h3>Coding Dojo</h3>
+							<div class="block">Lieu où l'on étudie la voie du code</div>
+						</div>
+
+					</section>
+					<section data-state="alert">
+						<h2>ça n'est pas :</h2>
+						<div>un prof qui dispense la bonne parole</div>
+						<div>une formation passive</div>
+					</section>
+					<section data-state="soothe">
+						<h2>Un espace d'échange</h2>
+						<div>
+							<br>
+						</div>
+						<div>un lieu de partage</div>
+						<div>un lieu d'expérimentations</div>
+						<div>un lieu de pratique</div>
+						<div>un lieu d'apprentissage</div>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Deux formats</h2>
+						
+						<h3 class="fragment">Kata</h3>
+						<div class="fragment">
+							<div>un problème</div>
+							<div>une solution présentée par un binôme</div>
+							<div>on décortique et on refait</div>
+						</div>
+
+						<br>
+						<h3 class="fragment">Randori</h3>
+						<div class="fragment">
+							<div>un problème</div>
+							<div>résolution progressive</div>
+							<div>un binôme au clavier</div>
+							<div>on tourne toutes les 5 min</div>
+						</div>
+					</section>
+					<section>
+						<h2>Et toujours</h2>
+						<div>pas à pas</div>
+						<div>piloté par les tests</div>
+						<div>pas de pré requis</div>
+						<div>profite à tout le monde</div>
+					</section>
+				</section>
+
+				<section>
+					<h2>sujets abordés</h2>
+
+					<h3>des techniques</h3>
+					<div>algos, patterns, ...</div>
+					<div>
+						<br>
+					</div>
+					<h3>des pratiques</h3>
+					<div>pair programming</div>
+					<div>TDD</div>
+					<div>BDD</div>
+					<div>conception émergente</div>
+				</section>
+				<section>
+					<h1>On y va ?</h1>
+
+					<p><a href="kata-romannumerals.html">Kata Roman Numerals</a></p>
+					<p><a href="kata-marsrover.html">Kata Mars Rover</a></p>
+					<p><a href="kata-bowling.html">Kata Bowling</a></p>
+				</section>
+				
+			</div>
+
+			<!-- The navigational controls UI -->
+			<aside class="controls">
+				<a class="left" href="#">&#x25C4;</a>
+				<a class="right" href="#">&#x25BA;</a>
+				<a class="up" href="#">&#x25B2;</a>
+				<a class="down" href="#">&#x25BC;</a>
+			</aside>
+
+			<!-- Presentation progress bar -->
+			<div class="progress"><span></span></div>
+
+		</div>
+
+		<script src="../reveal.js/lib/js/head.min.js"></script>
+		<script src="../reveal.js/js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: '../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../reveal.js/plugin/zoom-js/zoom.js', async: true },
+					{ src: '../reveal.js/plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+</body>
+</html>
