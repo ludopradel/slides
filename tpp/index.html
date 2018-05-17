@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Transformation Priority Premise</title>
+
+		<meta name="description" content="Transformation Priority Premise">
+		<meta name="author" content="Ludovic Pradel">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="../reveal.js/css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+				<section>
+					<h1>Transformation Priority Premise</h1>
+					<p><small>By <a href="http://www.twitter.com/ludopradel">@ludopradel</a> </small></p>
+				</section>
+
+				<section>
+					<h2>TDD</h2>
+					<ul>
+					<li class="fragment"> But what to choose next ?! </li>
+					<li class="fragment"> What is the most simple implementation ? </li>
+					<li class="fragment"> Uncle Bob (again) in 2010 (8 years ago -.-) invented </li>
+					<li class="fragment"> Transformation Priority Premise</li>
+                                        </ul>
+				</section>
+				<section>
+					<h2>Transformation</h2>
+					<div>
+					<img width="631" height="373" data-src="images/tdd.png">
+					</div>
+				</section>
+				<section>
+					<h2>Transformation</h2>
+					<div>
+					<img width="631" height="373" data-src="images/transformation.png">
+					</div>
+					<aside class="notes">
+					refactorings are used to transform the structure of code without altering its behavior<br/>
+					These transformations are used in order to change the behavior of code.
+					</aside>
+				</section>
+				<section>
+					<h2>Priority</h2>
+					<div> A set of transformation order by Priority </div>
+					<img width="534" height="397" data-src="images/tpp-example.png">
+					<small>From specific to generic</small>
+				</section>
+				<section>
+					<h2>Premise</h2>
+					<ul><li> This is not a rule, </li>
+					<li> This is not a law, </li>
+					<li> This is something that seems to work, nothing proved, </li>
+					<li> Just a guidline... </li></ul>
+				</section>
+
+				<section>
+					<h2>How to use it ?</h2>
+					<div> When passing a test to green, prefer transformations on the top of the list, </div>
+					<div> Choose a test that allows simpler transformation, </div>
+					<div></div>
+				</section>
+
+				<section>
+					<h2>Further Reading</h2>
+					<div> <a href="https://8thlight.com/blog/uncle-bob/2013/05/27/TheTransformationPriorityPremise.html">Uncle Bob's article</a> </div>
+					<div> <a href="https://github.com/ludopradel/transformation-priority-premise">Katas using TPP</a> </div>
+					<div> <a href="http://blog.code-cop.org/2016/08/absolute-priority-premise-example.html">Interesting usage</a> </div>
+
+				</section>
+				<section>
+					<img width="534" height="397" data-src="images/tpp-example.png">
+				</section>
+
+				
+			</div>
+
+		</div>
+
+		<script src="../reveal.js/lib/js/head.min.js"></script>
+		<script src="../reveal.js/js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: '../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../reveal.js/plugin/zoom-js/zoom.js', async: true },
+					{ src: '../reveal.js/plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
