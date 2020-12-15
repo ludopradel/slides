@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+	<title>Kata Mars Rover</title>
+
+	<meta name="description" content="Description du kata Mars rover">
+	<meta name="author" content="Ludovic Pradel">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="../reveal.js/css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+				<section>
+					<h1>Kata Mars Rover</h1>
+					<p>	
+						<small><a href="http://twitter.com/ludopradel">@ludopradel</a></small>
+					</p>
+				</section>
+
+				<section>
+					<section>
+						<h3>Objectif</h3>
+						<p>
+							Écrire une API permettant de déplacer un robot sur une grille.
+						</p>
+						<p>On vous donne une suite de caractères décrivant les actions à effectuer, parmis :</p>
+						<ul>
+							<li>L : tourne le robot d'un quart de tour sur la gauche,</li>
+							<li>R : tourne le robot d'un quart de tour sur la droite,</li>
+							<li>M : déplace le robot d'une case vers l'avant (suivant sa direction)</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Règles</h3>
+						<ul>
+							<li class="fragment">le robot reçoit un tableau de caractères de commandes</li>
+							<li class="fragment">le robot a une position initiale en (0,0,N)</li>
+							<li class="fragment">0,0 sont les coordonnées X,Y sur la grille</li>
+							<li class="fragment">N est la direction vers laquelle est tournée le robot</li>
+							<li class="fragment">seules les commandes "M, L et R" sont autorisées</li>
+							<li class="fragment">le monde est "rond"</li>
+							<li class="fragment">
+								gestion d'obstacles
+								<ul>
+								 	<li>avant de se déplacer le robot détecte les obstacles.</li>
+								 	<li>
+								 		si une suite de commande passe par un obstacle le robot va aussi loin
+								 		que possible et mentionne l'obstacle
+								 	</li>
+								 </ul>
+							</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Exemple</h3>
+						<p>
+							Un robot situé à (0, 0) et orienté vers le Nord sur une grille de 10x10 se retrouvera
+							en (2, 2) et orienté vers l'Est si on lui transmet les commandes "MMRMM"
+						</p>
+					</section>
+					<section>
+						<h3>Conseils</h3>
+						<ul>
+							<li>utilisez les tests pour résoudre le problème petit à petit</li>
+							<li>ne vous préoccupez pas (trop) de la structure de données, refactorez au fil des tests !</li>
+							<li>n'hésitez pas à tester les commandes "internes" du robot pour gagner en assurance</li>
+						</ul>
+					</section>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="../reveal.js/lib/js/head.min.js"></script>
+		<script src="../reveal.js/js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: '../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../reveal.js/plugin/zoom-js/zoom.js', async: true },
+					{ src: '../reveal.js/plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
